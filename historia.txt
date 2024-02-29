@@ -1,0 +1,36 @@
+cd PracticaGit/
+# Creación del repositorio
+git init
+# Creación de la estructura de carpetas
+mkdir Proyectos
+mkdir Proyectos/Prj1
+mkdir Procesos
+mkdir Procesos/ControlDeCambios
+# Asociación al repositorio remoto de GitHub
+git remote add origin https://github.com/YagoFalgueras/EnSo6-PracticaGit.git
+# Creación del fichero del historial de comandos
+touch historia.txt
+# Se añaden todos los archivos nuevos al área de preparación, para que se incluyan en el commit
+git add --all
+# Primer commit. Se actualizan los cambios
+git commit -m "Versión inicial del respositorio. Se incluye la estructura inicial del respositorio, y la primera versión del documento de gestión de cambios y sus plantillas"
+# Se añade la etiqueta R1 al estado del proyecto
+git tag -a R1 -m "Versión R1"
+# Se crea la rama Mejoras
+git branch Mejoras
+# Se cambia a la rama Mejoras
+git checkout Mejoras
+# Se añade el fichero de cambios propuestos al área de preparación
+git add Procesos/ControlDeCambios/DP_ControldeCambios_Grupo1.pdf
+# Se vuelve a la rama Main 
+git checkout main
+# Se fusiona la rama Mejoras con Main
+git merge Mejoras
+# Se elimina la rama Mejoras
+git branch -d Mejoras
+# Se elimina el fichero de cambios propuestos
+git rm Procesos/ControlDeCambios/DP_ControldeCambios_Grupo1.pdf
+# Segundo commit. Se actualizan los cambios
+git commit -m "Segunda versión del repositorio. Los cambios indicados han sido implementados"
+# Se cambia la etiqueta de estado a R2
+git tag -a R2 -m "Versión R2"
